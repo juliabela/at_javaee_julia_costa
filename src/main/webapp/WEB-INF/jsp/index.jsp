@@ -29,6 +29,12 @@
 				<h3>Cadastro de venda</h3>
 				<button type="submit" class="btn-link">Nova Venda</button>			
 			</form>
+		</div>
+		<div class="panel-body">
+			<form action="/usuario" method="get">
+				<h3>Cadastro de usuarios</h3>
+				<button type="submit" class="btn-link">Novo Usuario</button>			
+			</form>
 		</div> 
 	</div>
 </body>

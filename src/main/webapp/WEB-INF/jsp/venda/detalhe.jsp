@@ -18,6 +18,14 @@
 		<form action="/venda/incluir" method="post">
 			
 			<div class="form-group">
+				<label>Infome o nome do usuário:</label>
+				<select class="form-control" name="usuario.id">
+					<c:forEach var="u" items="${usuarios}">
+						<option value="${u.id}">${u.nome}</option>
+					</c:forEach>					
+				</select>
+			</div>
+			<div class="form-group">
 				<label>Infome o nome do produto:</label>
 				<input type="text" name="nome" class="form-control"><br>
 			</div>

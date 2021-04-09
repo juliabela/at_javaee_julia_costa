@@ -34,6 +34,13 @@
 			
 		</form>
 		
+		<c:if test="${not empty alerta}">		
+			<div class="alert alert-warning">
+				<strong>Erro ao logar!</strong> ${alerta}
+			</div>
+		</c:if>
+			
+		
 		<c:if test="${not empty animais}">
 			<div class="container">
 			  <h2>Listagem de Animais</h2>
@@ -43,6 +50,7 @@
 			        <th>Nome</th>
 			        <th>Raça</th>
 			        <th>Responsavel</th>
+			        <th>Cadastrado por</th>
 			      </tr>
 			    </thead>
 			    <tbody>
@@ -51,6 +59,7 @@
 				        	<td>${a.nome}</td>
 				        	<td>${a.raca}</td>
 				        	<td>${a.responsavel}</td>
+				        	<td>${a.usuario.nome}</td>
 				        	<td><a href="/animal/${a.id}/excluir">excluir</a></td>
 				      	</tr>
 			    	</c:forEach>
@@ -65,7 +74,7 @@
 		 </c:if>
 		 
 	</div>
-	<form action="/" method="get">			
+	<form action="/home" method="get">			
 			<input type="submit" value="Voltar" class="botao">			
 	</form>
 	

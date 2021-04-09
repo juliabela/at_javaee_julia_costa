@@ -8,14 +8,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class AcessoController {
 	
 	
-	@GetMapping(value = "/")
-	public String init(Model model) {
-		
-		model.addAttribute("nome", "Julia Costa");
-		model.addAttribute("email", "jsdasdujs.@saudhausdhsa.com");
-		model.addAttribute("git", "https://github.com/juliabela");
+	@GetMapping(value = "/home")
+	public String home() {
 		
 		return "index";
+	}
+	
+	@GetMapping(value = "/")
+	public String login() {
+		
+		return "login";
 	}
 	
 

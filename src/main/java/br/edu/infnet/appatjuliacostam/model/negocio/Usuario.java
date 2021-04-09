@@ -19,7 +19,8 @@ public class Usuario {
 	private int id;
 	private String nome;
 	private String email;
-	private String senha;
+	private String senha;	
+	private String git;
 	
 	@OneToMany
 	@JoinColumn( name = "idUsario")
@@ -50,6 +51,19 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	public String getGit() {
+		return git;
+	}
+	public void setGit(String git) {
+		this.git = git;
+	}
+	public List<Venda> getVendas() {
+		return vendas;
+	}
+	public void setVendas(List<Venda> vendas) {
+		this.vendas = vendas;
+	}
+	
 	
 	
 

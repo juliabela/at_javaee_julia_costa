@@ -16,15 +16,7 @@
 		
 		
 		<form action="/venda/incluir" method="post">
-			
-			<div class="form-group">
-				<label>Infome o nome do usuário:</label>
-				<select class="form-control" name="usuario.id">
-					<c:forEach var="u" items="${usuarios}">
-						<option value="${u.id}">${u.nome}</option>
-					</c:forEach>					
-				</select>
-			</div>
+				
 			<div class="form-group">
 				<label>Infome o nome do produto:</label>
 				<input type="text" name="nome" class="form-control"><br>
@@ -49,6 +41,13 @@
 			<input type="submit" value="Salvar" class="botao">
 			
 		</form>
+		
+		<c:if test="${not empty alerta}">		
+			<div class="alert alert-warning">
+				<strong>Erro ao logar!</strong> ${alerta}
+			</div>
+		</c:if>
+		
 		<c:if test="${not empty vendas}">
 			<div class="container">
 			  <h2>Listagem de produtos</h2>
@@ -58,6 +57,7 @@
 			        <th>Nome:</th>
 			        <th>Valor:</th>
 			        <th>Quantidade:</th>
+			        <th>Vendedor:</th>
 			      </tr>
 			    </thead>
 			    <tbody>
@@ -66,6 +66,7 @@
 				        	<td>${v.nome}</td>
 				        	<td>${v.valor}</td>
 				        	<td>${v.qtde}</td>
+				        	<td>${v.usuario.nome}</td>
 				        	<td><a href="/venda/${v.id}/excluir">excluir</a></td>
 				      	</tr>
 			    	</c:forEach>
@@ -81,7 +82,7 @@
 		 
 	</div>
 	
-		<form action="/" method="get">			
+		<form action="/home" method="get">			
 			<input type="submit" value="Voltar" class="botao">			
 		</form>
 	

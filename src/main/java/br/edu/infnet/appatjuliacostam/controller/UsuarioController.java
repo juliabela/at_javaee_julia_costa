@@ -6,11 +6,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import br.edu.infnet.appatjuliacostam.model.negocio.Usuario;
 import br.edu.infnet.appatjuliacostam.model.service.UsuarioService;
 
 @Controller
+@SessionAttributes("user")
 public class UsuarioController {
 	
 	@Autowired
@@ -39,6 +42,23 @@ public class UsuarioController {
 		usuarioService.Excluir(id);
 		
 		return "redirect:/usuario";
+	}
+	
+	@PostMapping(value = "/usuario/login")
+	public String LoginAcess(Model model, @RequestParam String email, @RequestParam String senha) {
+		
+		Usuario usuario = usuarioService.autenticacao(email, senha);
+		
+		
+		if (usuario != null) {
+			
+			model.addAttribute("user", usuario);
+			
+			return "redirect:/home";
+		}
+	
+		model.addAttribute("alerta", "Email ou senha invalido for favor tente novamente");
+		return "login";
 	}
 
 }

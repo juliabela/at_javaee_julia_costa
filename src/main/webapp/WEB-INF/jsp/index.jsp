@@ -12,9 +12,9 @@
 	
 	<div class="container">
 	
-		<h3>${nome}</h3>
-		<h4>${email}</h4>
-		<h4><a href="${git}">GIT</a></h4>
+		<h3>${user.nome}</h3>
+		<h4>${user.email}</h4>
+		<h4><a href="${user.git}">GIT</a></h4>
 		
 		
 		<div class="panel-body">

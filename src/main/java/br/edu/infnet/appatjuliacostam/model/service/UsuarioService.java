@@ -12,6 +12,10 @@ public class UsuarioService {
 	
 	@Autowired
 	private IUsuarioRepository usuarioRepository;
+	
+	public Usuario autenticacao(String email, String senha) {
+		return usuarioRepository.autenticacao(email, senha);
+	}
 
 	public void Incluir(Usuario usuario) {
 		usuarioRepository.save(usuario);
@@ -24,4 +28,6 @@ public class UsuarioService {
 	public List<Usuario> ObterLista() {
 		return (List<Usuario>)usuarioRepository.findAll();
 	}
+	
+	
 }

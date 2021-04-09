@@ -59,7 +59,7 @@
 		 </c:if>
 		 
 	</div>
-	<form action="/" method="get">			
+	<form action="/home" method="get">			
 			<input type="submit" value="Voltar" class="botao">			
 	</form>
 	

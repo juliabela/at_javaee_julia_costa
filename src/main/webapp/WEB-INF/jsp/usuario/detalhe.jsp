@@ -30,10 +30,11 @@
 			<input type="submit" value="Salvar" class="botao">
 			
 		</form>
+		
+		<h2>Listagem de usuarios</h2>
 		<c:if test="${not empty usuarios}">
-			<div class="container">
-			  <h2>Listagem de usuarios</h2>
-			  <table class="table">
+			<div class="container">			  
+			  <table class="table table-striped">
 			    <thead>
 			      <tr>
 			        <th>Nome</th>
@@ -47,8 +48,7 @@
 				        	<td>${u.email}</td>
 				        	<td><a href="/usuario/${u.id}/excluir">excluir</a></td>
 				      	</tr>
-			    	</c:forEach>
-			     
+			    	</c:forEach>			     
 			    </tbody>
 			  </table>
 			 </div>
@@ -61,6 +61,9 @@
 	</div>
 	<form action="/home" method="get">			
 			<input type="submit" value="Voltar" class="botao">			
+	</form>
+	<form action="/" method="get">			
+			<input type="submit" value="Fazer Login" class="botao">			
 	</form>
 	
 </body>

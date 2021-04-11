@@ -14,6 +14,5 @@ public interface IVendaRepository extends CrudRepository<Venda, Integer> {
 	
 	@Query("from Venda v where v.usuario.id=:id")
 	List<Venda>obterLista(Integer id, Sort by);
-
 	
 }

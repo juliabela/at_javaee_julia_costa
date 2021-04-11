@@ -45,16 +45,9 @@ public class AnimalController {
 	@GetMapping(value = "/animal/{id}/excluir")
 	public String excluir(Model model ,@PathVariable Integer id) {
 		
-		try {
-			animalService.Excluir(id);
-		} catch (Exception e) {
-			model.addAttribute("alerta", "Impossivel exlcuir o animal: " + e.getMessage());
-			return viewDetalheAnimal(model, null);
-			
-		}
-		
-		
+		animalService.Excluir(id);
 		return "redirect:/animal";
+		
 	}
 	
 }

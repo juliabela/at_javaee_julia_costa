@@ -2,6 +2,7 @@ package br.edu.infnet.appatjuliacostam.model.negocio;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +23,7 @@ public class Usuario {
 	private String senha;	
 	private String git;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.DETACH)
 	@JoinColumn( name = "idUsario")
 	private List<Venda> vendas;
 

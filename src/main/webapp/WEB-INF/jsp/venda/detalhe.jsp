@@ -47,10 +47,9 @@
 				<strong>Erro ao logar!</strong> ${alerta}
 			</div>
 		</c:if>
-		
+		<h2>Listagem de produtos</h2>
 		<c:if test="${not empty vendas}">
-			<div class="container">
-			  <h2>Listagem de produtos</h2>
+			<div class="container">			  
 			  <table class="table">
 			    <thead>
 			      <tr>

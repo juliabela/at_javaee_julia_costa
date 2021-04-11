@@ -29,7 +29,7 @@ public class VendaController {
 		model.addAttribute("vendas", vendaService.ObterLista(usuario));
 		System.out.println("Lista atualizada com sucesso");
 		
-		model.addAttribute("compradores", animalService.ObterLista());
+		model.addAttribute("compradores", animalService.ObterLista(usuario));
 		
 		
 		return "venda/detalhe";
@@ -39,30 +39,21 @@ public class VendaController {
 	public String incluir(Venda venda, @SessionAttribute("user") Usuario usuario) {
 		
 		
-		
-		
 		System.out.println("Venda Cadastrada com sucesso");
 		System.out.println(venda.getNome());
 		
 		venda.setUsuario(usuario);		
 		
 		vendaService.Incluir(venda);
+		
 		return "redirect:/venda";
 	}
 	
 	@GetMapping(value = "/venda/{id}/excluir")
 	public String excluir(Model model ,@PathVariable Integer id) {
 		
-		try {
-			
-			vendaService.Excluir(id);
-		} catch (Exception e) {
-			
-			model.addAttribute("alerta", "Impossivel exlcuir a venda: " + e.getMessage());
-			return viewDetalheVenda(model, null);
-			
-		}
-		
+		vendaService.Excluir(id);
+	
 		return "redirect:/venda";
 		
 	}

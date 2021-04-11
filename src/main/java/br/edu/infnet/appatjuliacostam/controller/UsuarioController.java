@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import br.edu.infnet.appatjuliacostam.model.negocio.Usuario;
@@ -19,10 +20,15 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
+	private Usuario usuario;
+	
 	@GetMapping(value = "/usuario")
-	public String viewDetalheUsuario(Model model) {		
-		model.addAttribute("usuarios", usuarioService.ObterLista());
+	public String viewDetalheUsuario(Model model, Usuario usuario) {
+		
+		model.addAttribute("usuarios", usuarioService.ListaOrdenada(usuario));
 		System.out.println("Lista atualizada com sucesso");
+		System.out.println(usuario);
+		
 		return "usuario/detalhe";
 	}
 	
